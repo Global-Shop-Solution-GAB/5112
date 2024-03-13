@@ -1,0 +1,349 @@
+Program.Sub.ScreenSU.Start
+gui.F_APEXPORT..create
+gui.F_APEXPORT..caption("Mestex AP Export")
+gui.F_APEXPORT..size(6465,5265)
+gui.F_APEXPORT..position(0,0)
+gui.F_APEXPORT..event(unload,f_apexport_unload)
+gui.F_APEXPORT..alwaysontop(False)
+gui.F_APEXPORT..fontname("Arial")
+gui.F_APEXPORT..fontsize(8)
+gui.F_APEXPORT..forecolor(0)
+gui.F_APEXPORT..fontstyle(,,,,)
+gui.F_APEXPORT..BackColor(-2147483633)
+gui.F_APEXPORT..controlbox(True)
+gui.F_APEXPORT..maxbutton(False)
+gui.F_APEXPORT..minbutton(True)
+gui.F_APEXPORT..mousepointer(0)
+gui.F_APEXPORT..moveable(True)
+gui.F_APEXPORT..sizeable(False)
+gui.F_APEXPORT..ShowInTaskBar(True)
+gui.F_APEXPORT..titlebar(True)
+gui.F_APEXPORT.frame1.create(frame)
+gui.F_APEXPORT.frame1.caption("")
+gui.F_APEXPORT.frame1.size(6060,2850)
+gui.F_APEXPORT.frame1.position(200,200)
+gui.F_APEXPORT.frame1.visible(True)
+gui.F_APEXPORT.frame1.fontname("Arial")
+gui.F_APEXPORT.frame1.fontsize(8)
+gui.F_APEXPORT.frame2.create(frame)
+gui.F_APEXPORT.frame2.caption("")
+gui.F_APEXPORT.frame2.size(6045,1680)
+gui.F_APEXPORT.frame2.position(200,3090)
+gui.F_APEXPORT.frame2.visible(True)
+gui.F_APEXPORT.frame2.fontname("Arial")
+gui.F_APEXPORT.frame2.fontsize(8)
+gui.F_APEXPORT.txtbatch.create(textbox,"",True,1515,300,0,200,435,False,0,Arial,8,-2147483643,1)
+gui.F_APEXPORT.txtbatch.parent("frame1")
+gui.F_APEXPORT.cmdbatch.create(button)
+gui.F_APEXPORT.cmdbatch.caption("^")
+gui.F_APEXPORT.cmdbatch.visible(True)
+gui.F_APEXPORT.cmdbatch.size(300,300)
+gui.F_APEXPORT.cmdbatch.zorder(0)
+gui.F_APEXPORT.cmdbatch.position(1815,435)
+gui.F_APEXPORT.cmdbatch.enabled(True)
+gui.F_APEXPORT.cmdbatch.parent("frame1")
+gui.F_APEXPORT.cmdbatch.fontname("Arial")
+gui.F_APEXPORT.cmdbatch.fontsize(8)
+gui.F_APEXPORT.cmdbatch.event(click,cmdbatch_click)
+gui.F_APEXPORT.cmdAdd.create(button)
+gui.F_APEXPORT.cmdAdd.caption("Add >>")
+gui.F_APEXPORT.cmdAdd.visible(True)
+gui.F_APEXPORT.cmdAdd.size(1095,390)
+gui.F_APEXPORT.cmdAdd.zorder(0)
+gui.F_APEXPORT.cmdAdd.position(2405,810)
+gui.F_APEXPORT.cmdAdd.enabled(True)
+gui.F_APEXPORT.cmdAdd.parent("frame1")
+gui.F_APEXPORT.cmdAdd.fontname("Arial")
+gui.F_APEXPORT.cmdAdd.fontsize(8)
+gui.F_APEXPORT.cmdAdd.event(click,cmdadd_click)
+gui.F_APEXPORT.cmdRemove.create(button)
+gui.F_APEXPORT.cmdRemove.caption("<< Remove")
+gui.F_APEXPORT.cmdRemove.visible(True)
+gui.F_APEXPORT.cmdRemove.size(1095,390)
+gui.F_APEXPORT.cmdRemove.zorder(0)
+gui.F_APEXPORT.cmdRemove.position(2405,2000)
+gui.F_APEXPORT.cmdRemove.enabled(True)
+gui.F_APEXPORT.cmdRemove.parent("frame1")
+gui.F_APEXPORT.cmdRemove.fontname("Arial")
+gui.F_APEXPORT.cmdRemove.fontsize(8)
+gui.F_APEXPORT.cmdRemove.event(click,cmdremove_click)
+gui.F_APEXPORT.txtExportDes.create(textbox,"",True,5160,300,0,300,600,True,0,Arial,8,-2147483643,1)
+gui.F_APEXPORT.txtExportDes.parent("frame2")
+gui.F_APEXPORT.cmdDes.create(button)
+gui.F_APEXPORT.cmdDes.caption("^")
+gui.F_APEXPORT.cmdDes.visible(True)
+gui.F_APEXPORT.cmdDes.size(300,300)
+gui.F_APEXPORT.cmdDes.zorder(0)
+gui.F_APEXPORT.cmdDes.position(5575,600)
+gui.F_APEXPORT.cmdDes.enabled(True)
+gui.F_APEXPORT.cmdDes.parent("frame2")
+gui.F_APEXPORT.cmdDes.fontname("Arial")
+gui.F_APEXPORT.cmdDes.fontsize(8)
+gui.F_APEXPORT.cmdDes.event(click,cmddes_click)
+gui.F_APEXPORT.lblBatch.create(label,"Select Batch Numbers(s)",True,1935,255,1,200,190,True,0,Arial,8,-2147483633,0)
+gui.F_APEXPORT.lblBatch.parent("frame1")
+gui.F_APEXPORT.lbl2.create(label,"Select Destination Folder and File:",True,3120,255,1,365,320,True,0,Arial,8,-2147483633,0)
+gui.F_APEXPORT.lbl2.parent("frame2")
+gui.F_APEXPORT.lvwbATCH.create(listview)
+gui.F_APEXPORT.lvwbATCH.view(3)
+gui.F_APEXPORT.lvwbATCH.addlistviewcolumn("Batch #",2100,0)
+gui.F_APEXPORT.lvwbATCH.visible(True)
+gui.F_APEXPORT.lvwbATCH.size(2190,2230)
+gui.F_APEXPORT.lvwbATCH.zorder(0)
+gui.F_APEXPORT.lvwbATCH.position(3700,435)
+gui.F_APEXPORT.lvwbATCH.enabled(True)
+gui.F_APEXPORT.lvwbATCH.parent("frame1")
+gui.F_APEXPORT.lvwbATCH.fontname("Arial")
+gui.F_APEXPORT.lvwbATCH.fontsize(8)
+gui.F_APEXPORT.cmdExport.create(button)
+gui.F_APEXPORT.cmdExport.caption("Export")
+gui.F_APEXPORT.cmdExport.visible(True)
+gui.F_APEXPORT.cmdExport.size(855,375)
+gui.F_APEXPORT.cmdExport.zorder(0)
+gui.F_APEXPORT.cmdExport.position(310,1100)
+gui.F_APEXPORT.cmdExport.enabled(True)
+gui.F_APEXPORT.cmdExport.parent("frame2")
+gui.F_APEXPORT.cmdExport.fontname("Arial")
+gui.F_APEXPORT.cmdExport.fontsize(8)
+gui.F_APEXPORT.cmdExport.event(click,cmdexport_click)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.FileLoc.Declare(String)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Mestex AP Export
+'Runs on any custom hook
+
+
+
+F.ODBC.Connection!CONX.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+Gui.F_APEXPORT..Show
+
+Program.Sub.Main.End
+
+program.sub.f_apexport_unload.start
+f.Intrinsic.Control.End
+
+program.sub.f_apexport_unload.end
+
+program.sub.cmdbatch_click.start
+V.Local.sSQL.Declare(String)
+V.Local.sCol.Declare(String)
+V.Local.sWidth.Declare(String)
+V.Local.sFormat.Declare(String)
+
+V.Local.sret.Declare(String)
+V.Local.squery.Declare(String)
+
+F.Intrinsic.String.Split("BATCH #*!*BATCH DATE","*!*",V.Local.sCol)
+F.Intrinsic.String.Split("2000*!*2000","*!*",V.Local.swidth)
+'F.Intrinsic.String.Split("*!*00.0000","*!*",V.Local.sFormat)
+'F.Intrinsic.String.Concat("SELECT DISTINCT BATCH_NUM, ",V.Ambient.DBLQuote,"BATCH DATE",V.Ambient.DBLQuote," FROM v_AP_OPEN_ITEMS ORDER BY BATCH_NUM",V.Local.squery)
+V.Local.sQuery.Set("SELECT DISTINCT BATCH_NUM, DATE_BATCH FROM v_AP_OPEN_ITEMS ORDER BY BATCH_NUM")
+
+F.Intrinsic.UI.Browser("Select AP Batch","conx",V.Local.squery,V.Local.sCol,V.Local.sWidth,400,400,V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sret,<>,"***CANCEL***")
+	F.Intrinsic.string.Split(V.Local.sret,"*!*",V.Local.sret)
+	Gui.F_APEXPORT.txtbatch.Text(V.Local.sret(0))
+F.Intrinsic.Control.EndIf
+
+
+program.sub.cmdbatch_click.end
+
+program.sub.cmdadd_click.start
+F.Intrinsic.Control.If(V.Screen.F_APEXPORT!txtbatch.Text,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+Gui.F_APEXPORT.lvwbatch.AddListItem(V.Screen.F_APEXPORT!txtbatch.Text,V.Screen.F_APEXPORT!txtbatch.Text)
+
+program.sub.cmdadd_click.end
+
+program.sub.cmdremove_click.start
+
+F.Intrinsic.Control.If(V.Screen.F_APEXPORT!lvwbATCH.SelectedItemKey,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+
+gui.F_APEXPORT.lvwbATCH.RemoveItem(V.Screen.F_APEXPORT!lvwbATCH.SelectedItemKey)
+
+program.sub.cmdremove_click.end
+
+program.sub.cmddes_click.start
+V.Local.FileLoc.Declare(String)
+
+
+Function.Intrinsic.UI.ShowSaveFileDialog("APDAL.TXT","*.txt","C:\",Variable.local.FileLoc)
+
+
+F.Intrinsic.Control.If(V.Local.fileloc,<>,"***CANCEL***")
+	Gui.F_APEXPORT.txtExportDes.Text(V.Local.FileLoc)
+F.Intrinsic.Control.endif
+
+program.sub.cmddes_click.end
+
+program.sub.cmdexport_click.start
+V.Local.sSQL.Declare(String)
+V.Local.sSQL2.Declare(String)
+V.Local.sAP.Declare(String)
+V.Local.sAPLine.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.ix.Declare(Long)
+V.Local.iCount.Declare(Long)
+V.Local.sInvoice.Declare(String)
+V.Local.sGL.Declare(String)
+V.Local.sCredit.Declare(String)
+V.Local.itotal.Declare(Long)
+
+F.Intrinsic.Control.If(V.Screen.F_APEXPORT!txtExportDes.Text,=,"")
+	F.Intrinsic.UI.Msgbox("Must choose export file.","Export File Required.")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+Gui.F_APEXPORT..Enabled(false)
+
+V.Local.sSQL.Set("SELECT *  FROM  AP_OPEN_ITEMS WHERE")
+
+
+F.Intrinsic.Math.Sub(V.Screen.F_APEXPORT!lvwbATCH.ListItemCount,0,V.Local.iCount)
+F.Intrinsic.Control.For(V.Local.ix,1,V.Local.iCount,1)
+	
+	F.Intrinsic.String.Concat(V.Local.sSQL," AP_OPEN_ITEMS.BATCH_NUM = '",V.Screen.F_APEXPORT!lvwbATCH.ListItemText(v.Local.ix),"'",V.Local.sSQL)
+
+	F.Intrinsic.Control.If(V.Local.ix,<>,V.Local.iCount)
+		F.Intrinsic.String.Concat(V.Local.sSQL," OR ",V.Local.sSQL)
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.next(V.Local.ix)
+
+F.Intrinsic.String.Replace(V.lOCAL.ssql,"SELECT *","SELECT COUNT(*) AS CNT",V.LOCAL.SSQL2)
+F.Intrinsic.String.Concat(V.Local.sSQL," ORDER BY AP_OPEN_ITEMS.INVOICE",V.Local.sSQL)
+
+F.ODBC.Connection!CONX.OpenRecordsetRO("rstCOUNT",V.Local.sSQL2)
+F.Intrinsic.Control.If(V.ODBC.CONX!rstCOUNT.EOF,=,False)
+	V.Local.itotal.Set(V.ODBC.CONX!rstCOUNT.FieldValTrim!CNT)
+F.Intrinsic.Control.EndIf
+F.ODBC.ConX!rstCOUNT.Close
+
+F.Intrinsic.Control.If(V.Local.itotal,<,2)
+	V.Local.itotal.Set(2)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.UI.InvokeWaitDialog("Exporting...","Exporting AP Batches.")
+V.Local.ix.Set(0)
+F.ODBC.Connection!CONX.OpenRecordsetRO("rstAP",V.Local.sSQL)
+F.Intrinsic.Control.DoUntil(V.ODBC.CONX!rstAP.EOF,=,True)
+	F.Intrinsic.Math.Add(V.Local.ix,1,V.Local.ix)
+	F.Intrinsic.UI.ChangeWaitStatus(V.ODBC.CONX!rstAP.FieldValTrim!BATCH_NUM,V.Local.ix,1,V.Local.itotal)
+	F.Intrinsic.Control.If(V.ODBC.CONX!rstAP.FieldValFloat!AMT_INVOICE,>,0)
+	
+		'Vendor
+		F.Intrinsic.String.LPad(V.ODBC.CONX!rstAP.FieldValTrim!VENDOR," ",5,V.Local.sTemp)
+		F.Intrinsic.String.Concat(V.Local.sTemp," ",V.Local.sAPLine)
+		'PO
+		F.Intrinsic.String.RPad(V.ODBC.CONX!rstAP.FieldValTrim!PURCHASE_ORDER," ",10,V.Local.sTemp)
+		F.Intrinsic.String.Concat(V.Local.sAPLine,V.Local.sTemp,V.Local.sAPLine)
+		'VENDOR TEXT
+		F.Intrinsic.String.Concat("SELECT TEXT FROM AP_INVC_NOTES WHERE VENDOR='",V.ODBC.CONX!rstAP.FieldValTrim!VENDOR,"' AND INVOICE='",V.ODBC.CONX!rstAP.FieldValTrim!INVOICE,"'",V.Local.sSQL)
+		F.ODBC.Connection!CONX.OpenRecordsetRO("rstVEND",V.Local.sSQL)
+		F.Intrinsic.Control.If(V.ODBC.CONX!rstVEND.EOF,=,False)
+			V.Local.sTemp.Set(V.ODBC.CONX!rstVEND.FieldValTrim!TEXT)
+		F.Intrinsic.Control.Else
+			V.Local.sTemp.Set("")
+		F.Intrinsic.Control.EndIf
+		F.ODBC.CONX!rstVEND.Close
+		F.Intrinsic.String.RPad(V.Local.sTemp," ",19,V.Local.sTemp)
+		F.Intrinsic.String.Concat(V.Local.sAPLine,V.Local.sTemp,V.Local.sAPLine)
+		'DATE INVOICE
+		F.Intrinsic.String.Concat(V.Local.sAPLine,V.ODBC.CONX!rstAP.FieldValTrim!DATE_INVOICE,V.Local.sAPLine)
+		'DATE DUE
+		F.Intrinsic.String.Concat(V.Local.sAPLine,V.ODBC.CONX!rstAP.FieldValTrim!DATE_INVOICE_DUE,V.Local.sAPLine)
+		'BLANK
+		F.Intrinsic.String.RPad(" "," ",5,V.Local.sTemp)
+		F.Intrinsic.String.Concat(V.Local.sAPLine,V.Local.sTemp,V.Local.sAPLine)
+		'INVOICE AMOUNT
+		F.Intrinsic.Control.If(V.ODBC.CONX!rstAP.FieldValFloat!AMT_INVOICE,>,0)
+			F.Intrinsic.String.Format(V.ODBC.CONX!rstAP.FieldValFloat!AMT_INVOICE,"0.00",V.Local.sTemp)
+			F.Intrinsic.String.Replace(V.Local.sTemp,".","",V.Local.sTemp)
+		F.Intrinsic.Control.Else
+			V.Local.sTemp.Set("")
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.String.LPad(V.Local.sTemp,"0",12,V.Local.sTemp)
+		F.Intrinsic.String.Concat(V.Local.sAPLine,V.Local.sTemp,V.Local.sAPLine)
+		V.Local.sInvoice.Set(V.ODBC.CONX!rstAP.FieldValTrim!INVOICE)
+		'BLANK
+		F.Intrinsic.String.Concat(V.Local.sAPLine," ",V.Local.sAPLine)
+		'GL REPEAT
+		F.Intrinsic.String.Concat("SELECT GLA.AMOUNT_CMPNY, GLA.GL_NUMBER,GLD.DESCRIPTION FROM GL_AP_DETAIL GLA JOIN GL_DETAIL GLD ON GLA.GL_NUMBER = GLD.GL_NUMBER AND GLA.BATCH = GLD.BATCH WHERE GLA.INVOICE_NO='",V.ODBC.CONX!rstAP.FieldValTrim!INVOICE,"' AND GLA.BATCH='",V.ODBC.CONX!rstAP.FieldValTrim!BATCH_NUM,"' ",V.Local.sSQL)
+		F.ODBC.Connection!CONX.OpenRecordsetRO("rstGL",V.Local.sSQL)
+
+
+		V.Local.sGL.Set("")
+		F.Intrinsic.Control.DoUntil(V.ODBC.CONX!rstGL.EOF,=,True)
+			'GL DESCRIPTION
+	'		F.Intrinsic.String.RPad(V.ODBC.CONX!rstGL.FieldValTrim!DESCR," ",15,V.Local.sTemp)
+
+			'GL AMOUNT
+			F.Intrinsic.Control.If(V.ODBC.CONX!rstGL.FieldValfloat!AMOUNT_CMPNY,>=,0)
+				'changed by John
+				V.Local.sTemp.Set("")
+				F.Intrinsic.String.left(V.ODBC.CONX!rstGL.FieldValTrim!DESCRIPTION,15,V.Local.sTemp)
+				F.Intrinsic.String.RPad(V.Local.stemp," ",15,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sGL,V.Local.sTemp,V.Local.sGL)
+				F.Intrinsic.String.Format(V.ODBC.CONX!rstGL.FieldValfloat!AMOUNT_CMPNY,"0.00",V.Local.sTemp)
+				F.Intrinsic.String.Replace(V.Local.sTemp,".","",V.Local.sTemp)
+				V.Local.sCredit.Set(" ")
+				F.Intrinsic.String.LPad(V.Local.sTemp,"0",12,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sGL,V.Local.sTemp,V.Local.sCredit,V.Local.sGL)
+				'GL ACCOUNT
+				F.Intrinsic.String.LPad(V.ODBC.CONX!rstGL.FieldValTrim!GL_NUMBER,"0",16,V.Local.sTemp)
+				F.Intrinsic.String.Concat(V.Local.sGL,V.Local.sTemp,V.Local.sGL)
+
+	'		F.Intrinsic.Control.Else
+	'			V.Local.sTemp.Set("")
+	'			V.Local.sCredit.Set("C")
+			F.Intrinsic.Control.EndIf
+		
+			F.ODBC.CONX!rstGL.MoveNext
+		F.Intrinsic.Control.Loop
+		F.ODBC.CONX!rstGL.Close
+		F.Intrinsic.String.RPad(V.Local.sGL," ",880,V.Local.sTemp)
+		F.Intrinsic.String.Concat(V.Local.sAPLine,V.Local.stemp,V.Local.sAPLine)
+		'INVOICE
+		F.Intrinsic.String.RPad(V.ODBC.CONX!rstAP.FieldValTrim!INVOICE," ",20,V.Local.sTemp)
+		F.Intrinsic.String.Concat(V.Local.sAPLine,V.Local.stemp,V.Local.sAPLine)
+		'TERRITORY
+		F.Intrinsic.Control.If(V.ODBC.CONX!rstAP.FieldValTrim!TERRITORY,=,"")
+			'changed to main - JD
+			V.Local.sTemp.Set("MAIN")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Concat("REM",V.ODBC.CONX!rstAP.FieldValTrim!TERRITORY,V.Local.sTemp)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Local.sTemp,=,"REM00")
+			V.Local.sTemp.Set("MAIN")
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.String.RPad(V.Local.sTemp," ",5,V.Local.sTemp)
+		F.Intrinsic.String.Concat(V.Local.sAPLine,V.Local.sTemp,V.Local.sAPLine)
+		F.Intrinsic.String.Concat(V.Local.sAP,V.Local.sAPLine,V.Ambient.NewLine,V.Local.sAP)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.CONX!rstAP.MoveNext
+F.Intrinsic.Control.Loop
+F.ODBC.CONX!rstAP.Close
+
+F.Intrinsic.File.String2File(V.Screen.F_APEXPORT!txtExportDes.Text,V.Local.sAP)
+
+F.Intrinsic.String.Concat("File ",V.Screen.F_APEXPORT!txtExportDes.Text," exported.",V.Local.stemp)
+Gui.F_APEXPORT..Enabled(true)
+F.Intrinsic.UI.CloseWaitDialog
+F.Intrinsic.UI.Msgbox(V.Local.sTemp,"File Exported.")
+
+program.sub.cmdexport_click.end
+
+
